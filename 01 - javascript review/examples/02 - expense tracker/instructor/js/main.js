@@ -7,6 +7,7 @@ const expenseContainer = document.getElementById("expense-container")
 // 3. render out the data as a grid of cards!
 function renderExpenses(expenses) {
     expenseContainer.innerHTML = "";  // clear the container in preparation for rendering data
+    console.log(expenses);
     expenses.forEach(
         (expense) => {
             expenseContainer.innerHTML += `
