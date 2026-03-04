@@ -7,6 +7,9 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 
 
 export default function TodoList() {
@@ -75,7 +78,21 @@ export default function TodoList() {
           </Grid>
 
           <Grid size={12}>
-            <Typography>{todoList}</Typography>
+
+            <List sx={{ width: '75%' }}>
+              {
+                todoList.map(
+                  (todo, index) => {
+                    return <ListItem key={index}>
+                      <ListItemText>
+                        <Typography>{todo}</Typography>
+                      </ListItemText>
+                    </ListItem>
+                  }
+                )
+              }
+            </List>
+
           </Grid>
 
     </Grid>
