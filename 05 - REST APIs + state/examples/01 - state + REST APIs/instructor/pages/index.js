@@ -1,7 +1,12 @@
+// react hooks
+import { useState } from 'react';
+
+// nextjs components/styles
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+// MUI components
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -11,7 +16,14 @@ import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
+
 export default function Home() {
+
+  // state variables, just like any variable, can have any type of value! here, we'll use Objects.
+  const [quote, setQuote] = useState({
+    quote: "Quote goes here.",
+    author: "Author name here"
+  })
 
 
   return (
@@ -28,7 +40,7 @@ export default function Home() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            We Love Quotes
+            We Love Quotes (and we hate hardcoded data!)
           </Typography>
         </Toolbar>
       </AppBar>
@@ -42,7 +54,7 @@ export default function Home() {
             }}
           >
             <Typography variant="h5" align="center" color="text.primary" paragraph>
-              Quote here.
+              {quote.quote}
             </Typography>
             <Typography
               component="h1"
@@ -51,7 +63,7 @@ export default function Home() {
               color="text.secondary"
               gutterBottom
             >
-              Author here
+              {quote.author}
             </Typography>
             <Box
              display="flex"
