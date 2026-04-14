@@ -21,26 +21,29 @@
     )
 */
 
-import { render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 
 import TodoList from '../components/TodoList';
 
 
-// Test 1: syntax introduction; we'll just write a silly test to check typography rendering
+// Test 1/2: syntax introduction; we'll just write a silly test to check typography rendering
 test(
-  'test that title renders correctly',
+  'title & add button render correctly',
   () => {
     // a) setup
     render(<TodoList />) // implicitly produces a screen (used below) 'containing' the rendered DOM
 
     // b) execution (logic required to produce test result)
     const titleElement = screen.getByText("Our Todo List")
+    const addButton = screen.getByText("Add Todo")
     // ^ normally, I would never ever ever *ever* snipe an object based on text value (rather,
     //   things like ID, key, attributes, etc.) but this is an easy intro into poking the actual UI
 
     // c) assertion / expectation
     expect(titleElement).toBeInTheDocument();
+    expect(addButton).toBeInTheDocument();
+
 
   }
 )
